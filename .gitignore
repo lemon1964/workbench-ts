@@ -1,0 +1,28 @@
+# workbench-notes-ts/.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env files (секреты)
+.env
+.env.local
+.env.*.local
+
+# Editors
+.vscode/
+.idea/
+
+# Build / cache
+.next/
+dist/
+out/
+
+# workbench-notes-ts
+/.data
