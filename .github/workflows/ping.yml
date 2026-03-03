@@ -1,0 +1,20 @@
+name: Ping Render
+
+# Каждые 10 минут с 05:00 до 22:59 UTC / в Москве 08:00–01:59
+on:
+  schedule:
+    - cron: "*/10 5-22 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping health endpoint
+        env:
+          RENDER_URL: ${{ secrets.RENDER_URL }}
+        run: |
+          curl -fsS --location --max-time 20 \
+            --retry 3 --retry-delay 5 \
+            "$RENDER_URL/api/health" \
+            || echo "Ping failed"
