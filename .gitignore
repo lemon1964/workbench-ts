@@ -25,4 +25,4 @@ dist/
 out/
 
 # workbench-notes-ts
-/.data
+# /.data
