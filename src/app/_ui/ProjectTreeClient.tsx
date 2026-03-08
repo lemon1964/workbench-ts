@@ -146,7 +146,7 @@ export default function ProjectTreeClient({ projectId }: { projectId: Id }) {
     <div className="flex h-full flex-col gap-3">
       <div className="flex flex-col gap-3">
         <div>
-          <div className="text-xs font-semibold text-slate-300">Рабочее пространство</div>
+          {/* <div className="text-xs font-semibold text-slate-300">Рабочее пространство</div> */}
           <div className="text-lg font-semibold text-slate-100 leading-tight mt-1">
             {project.title}
           </div>
@@ -416,8 +416,8 @@ export default function ProjectTreeClient({ projectId }: { projectId: Id }) {
 
       <div className="mt-auto app-card app-card--soft">
         <div className="wb-tree-meta">
-          Поддерживается: текст, списки, ссылки, код, цвета. Картинки в курсовом варианте не
-          сохраняем.
+          Поддерживаются текст, списки, ссылки, код, цвета. 
+          Картинки сохраняются с внешними ссылками.
         </div>
       </div>
     </div>
