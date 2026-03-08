@@ -13,9 +13,38 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Workbench Notes (TS)", template: "%s — Workbench Notes (TS)" },
+  title: { default: "Workbench Notes", template: "%s — Workbench Notes" },
   description: "Workbench Notes — учебный проект для курса TypeScript (Next.js App Router).",
   icons: { icon: [{ url: "/favicon.ico" }] },
+  keywords: [
+    "notes",
+    "workbench",
+    "project memory",
+    "Quill",
+    "wysiwyg",
+    "Next.js",
+    "TypeScript",
+    "App Router",
+    "практика",
+  ],
+  openGraph: {
+    title: "Workbench Notes",
+    description:
+      "Workbench Notes — учебный проект для курса TypeScript (Next.js App Router).",
+    url: siteUrl,
+    siteName: "Workbench Notes",
+    images: [
+      {
+        url: "/og/workbench.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
