@@ -621,3 +621,19 @@ a {
   background: rgba(244, 63, 94, 0.15);
   color: rgba(253, 164, 175, 1);
 }
+
+
+  /* приклеить в тлф редактор вниз */
+@media (max-width: 1024px) {
+  .wb-note-head {
+    position: static !important;
+    top: auto !important;
+  }
+
+  /* страховка: даже если где-то sticky всё же всплывёт,
+     sidebar должен быть поверх */
+  .wb-sidebar {
+    position: relative;
+    z-index: 30;
+  }
+}
