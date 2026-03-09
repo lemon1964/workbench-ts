@@ -29,6 +29,7 @@ export default function ProjectWorkspaceClient({ projectId }: { projectId: Id })
 
   const ui = useUIShell();
   const { focusMode } = ui.state;
+  const sidebarHidden = focusMode && Boolean(note);
 
   const project = getProject(projectId);
   if (!project) {
@@ -50,7 +51,7 @@ export default function ProjectWorkspaceClient({ projectId }: { projectId: Id })
     <section className="app-section pb-0 flex-1 min-h-0">
       <WorkspaceShell
         sidebar={<ProjectTreeClient projectId={projectId} />}
-        sidebarHidden={focusMode}
+        sidebarHidden={sidebarHidden}
         // sidebarHidden={focusMode}
         main={
           note ? (
