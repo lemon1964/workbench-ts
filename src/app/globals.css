@@ -492,6 +492,15 @@ a {
   padding: 10px 12px;
 }
 
+/* Mobile: в одноколоночном layout sticky-шапка редактора может перекрывать sidebar (особенно iOS Safari).
+   Поэтому на малых экранах выключаем sticky. */
+   @media (max-width: 1024px) {
+    .wb-note-head {
+      position: static;
+      top: auto;
+    }
+  }
+
 /* ===== Viewer (Quill-like) ===== */
 .wb-viewer {
   background: #fff;
