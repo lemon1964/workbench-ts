@@ -477,30 +477,6 @@ a {
   background-clip: padding-box;
 }
 
-/* ===== Sticky note header inside right panel ===== */
-.wb-note-head {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-
-  background: rgba(11, 18, 32, 0.92);
-  backdrop-filter: blur(8px);
-
-  border: 1px solid rgba(226, 232, 240, 0.12);
-  border-radius: 12px;
-
-  padding: 10px 12px;
-}
-
-/* Mobile: в одноколоночном layout sticky-шапка редактора может перекрывать sidebar (особенно iOS Safari).
-   Поэтому на малых экранах выключаем sticky. */
-   @media (max-width: 1024px) {
-    .wb-note-head {
-      position: static;
-      top: auto;
-    }
-  }
-
 /* ===== Viewer (Quill-like) ===== */
 .wb-viewer {
   background: #fff;
@@ -623,6 +599,31 @@ a {
 }
 
 
+
+/* ===== Sticky note header inside right panel ===== */
+.wb-note-head {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  background: rgba(11, 18, 32, 0.92);
+  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(226, 232, 240, 0.12);
+  border-radius: 12px;
+
+  padding: 10px 12px;
+}
+
+/* Mobile: в одноколоночном layout sticky-шапка редактора может перекрывать sidebar (особенно iOS Safari).
+   Поэтому на малых экранах выключаем sticky. */
+   @media (max-width: 1024px) {
+    .wb-note-head {
+      position: static;
+      top: auto;
+    }
+  }
+
   /* приклеить в тлф редактор вниз */
 @media (max-width: 1024px) {
   .wb-note-head {
@@ -635,5 +636,35 @@ a {
   .wb-sidebar {
     position: relative;
     z-index: 30;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* 1) На мобиле shell не должен пытаться занять "высоту экрана" как flex-1.
+        Пусть высота считается по контенту, тогда пропадёт "воздух" и слои. */
+  .wb-shell {
+    flex: 0 0 auto !important;
+  }
+
+  /* 2) В одноколоночном режиме снимаем любые "полные высоты" у панелей */
+  .wb-sidebar,
+  .wb-main {
+    height: auto !important;
+    min-height: 0 !important;
+    grid-column: 1 / -1; /* страховка от iOS grid-особенностей */
+  }
+
+  /* 3) На мобиле список заметок лучше не ограничивать vh,
+        иначе легко "съесть" кликабельные зоны */
+  .wb-notes-scroll {
+    max-height: none !important;
+  }
+
+  /* 4) Самая частая причина перекрытий: min-height: 680px у editor/viewer.
+        На телефоне это слишком много. */
+  .wb-editor,
+  .wb-viewer {
+    min-height: 360px !important;
+    height: min(60dvh, calc(100dvh - 340px)) !important;
   }
 }
