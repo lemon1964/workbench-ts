@@ -1,6 +1,7 @@
 // src/components/layout/AppHeader.tsx
 import Link from "next/link";
 import Container from "./Container";
+import AudioToggle from "./AudioToggle";
 
 export default function AppHeader() {
   return (
@@ -14,7 +15,11 @@ export default function AppHeader() {
             Workbench Notes
           </Link>
 
-          <div className="text-xs text-slate-400">Course II • TypeScript</div>
+          <div className="flex items-center gap-2">
+            <AudioToggle />
+            <div className="text-xs text-slate-400">Course II • TypeScript</div>
+          </div>
+          {/* <div className="text-xs text-slate-400">Course II • TypeScript</div> */}
         </div>
       </Container>
     </header>

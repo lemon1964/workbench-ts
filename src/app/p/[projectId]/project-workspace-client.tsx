@@ -105,8 +105,8 @@ export default function ProjectWorkspaceClient({ projectId }: { projectId: Id })
             </div>
           ) : (
             <div className="app-card app-card--soft">
-              <div className="font-semibold">Выбери заметку</div>
-              <p className="muted mt-1 text-sm">Выбери заметку слева или используй поиск.</p>
+              <div className="font-semibold">Выберите заметку</div>
+              <p className="muted mt-1 text-sm">Выберите заметку слева или используйте поиск.</p>
             </div>
           )
         }

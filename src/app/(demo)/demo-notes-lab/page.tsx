@@ -133,9 +133,9 @@ export default async function DemoNotesLabPage({ searchParams }: PageProps) {
             </>
           ) : (
             <>
-              <div className="text-sm font-semibold">Выбери заметку</div>
+              <div className="text-sm font-semibold">Выберите заметку</div>
               <p className="mt-1 text-sm muted">
-                Выбери заметку слева или укажи параметр note в URL.
+                Выберите заметку слева или укажите параметр note в URL.
               </p>
               <div className="mt-3 text-sm muted">
                 Пример: <code className="font-mono">/demo-notes-lab?note=n1</code>
