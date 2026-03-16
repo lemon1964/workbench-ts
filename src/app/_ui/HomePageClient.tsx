@@ -3,7 +3,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+// import Link from "next/link";
 
 import Container from "@/components/layout/Container";
 import Input from "@/components/ui/Input";
@@ -12,6 +12,7 @@ import { useWorkbenchStore } from "@/lib/workbenchStore";
 import CreateProjectInlineActionClient from "@/components/forms/CreateProjectInlineActionClient";
 import RenameProjectInlineActionClient from "@/components/forms/RenameProjectInlineActionClient";
 import DeleteProjectActionClient from "@/components/forms/DeleteProjectActionClient";
+import { track } from "@/utils/track";
 
 type Structure = "entries" | "sections";
 
@@ -258,7 +259,11 @@ export default function HomePage() {
           className="app-card app-card--soft cursor-pointer hover:border-slate-500/70 hover:bg-white/5 transition-colors"
           role="button"
           tabIndex={0}
-          onClick={() => router.push("/demo")}
+          onClick={() => { 
+            router.push("/demo")
+            track("studying_lab", "WBCourse");
+          }}
+          // onClick={() => router.push("/demo")}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
