@@ -22,7 +22,7 @@ export default function AppHeader() {
           <div className="flex items-center gap-2">
             <AudioToggle />
             <Link
-              href="https://stepik.org/a/275811/"
+              href="https://stepik.org/a/275811/?utm_source=project&utm_medium=referral&utm_campaign=workbench"
               target="_blank"
               rel="noopener noreferrer"
               className="app-btn app-btn-course shadow-sm hover:shadow-md"
